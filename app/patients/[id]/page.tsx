@@ -1,12 +1,6 @@
 import PatientProfile from './PatientProfile';
 
-interface PatientPageProps {
-  params: {
-    id: string;
-  };
-}
-
-export function generateStaticParams() {
+export async function generateStaticParams() {
   return [
     { id: '1' },
     { id: '2' },
@@ -14,7 +8,10 @@ export function generateStaticParams() {
   ];
 }
 
+interface PatientPageProps {
+  params: { id: string };
+}
+
 export default function PatientPage({ params }: PatientPageProps) {
-  const { id } = params;
-  return <PatientProfile patientId={id} />;
+  return <PatientProfile patientId={params.id} />;
 }
