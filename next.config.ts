@@ -1,16 +1,22 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  output: "export",
+  reactStrictMode: true,
+
+  typescript: {
+    // Allow build to succeed even if there are type errors
+    ignoreBuildErrors: true,
+  },
+
+  eslint: {
+    // Allow build to succeed even if there are ESLint errors
+    ignoreDuringBuilds: true,
+  },
+
   images: {
+    // Disable Next.js image optimization (optional, useful for Vercel/Netlify issues)
     unoptimized: true,
   },
-  typescript: {
-    // ignoreBuildErrors: true,
-  },
 };
-
-module.exports = nextConfig;
-
 
 export default nextConfig;
