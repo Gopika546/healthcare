@@ -1,12 +1,12 @@
 import PatientProfile from './PatientProfile';
 
-type PatientPageProps = {
+interface PatientPageProps {
   params: {
     id: string;
   };
-};
+}
 
-export async function generateStaticParams() {
+export function generateStaticParams() {
   return [
     { id: '1' },
     { id: '2' },
@@ -14,7 +14,7 @@ export async function generateStaticParams() {
   ];
 }
 
-// This is a Server Component, so keep it `async` if you need data fetching
 export default function PatientPage({ params }: PatientPageProps) {
-  return <PatientProfile patientId={params.id} />;
+  const { id } = params;
+  return <PatientProfile patientId={id} />;
 }
