@@ -1,25 +1,26 @@
 import PatientProfile from './PatientProfile';
 import { Metadata } from 'next';
-import { type FC } from 'react';
 
-interface PageProps {
+// ✅ Correct prop typing for App Router
+type Props = {
   params: {
     id: string;
   };
-}
-
-// ✅ Dynamic route page component
-const PatientPage: FC<PageProps> = ({ params }) => {
-  return <PatientProfile patientId={params.id} />;
 };
 
-export default PatientPage;
+export default function PatientPage({ params }: Props) {
+  return <PatientProfile patientId={params.id} />;
+}
 
-// ✅ Static params for SSG (used by App Router)
-export function generateStaticParams() {
+// ✅ `generateStaticParams` must return { params: { id: string } }[]
+export async function generateStaticParams() {
   return [
     { id: '1' },
     { id: '2' },
     { id: '3' }
-  ];
+  ].map((patient) => ({
+    params: {
+      id: patient.id,
+    },
+  }));
 }
