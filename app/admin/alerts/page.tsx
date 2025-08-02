@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import Header from '../../../components/Layout/Header';
+import Header from "../../../components/Layout/Header";
 
 const mockAlertSettings = [
   { id: '1', name: 'High Blood Pressure', parameter: 'bloodPressure', operator: '>', threshold: '140/90', priority: 'high', enabled: true, description: 'Alert when systolic BP exceeds 140 or diastolic exceeds 90' },

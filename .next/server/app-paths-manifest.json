@@ -1,3 +1,15 @@
 {
-  "/page": "app/page.js"
+  "/admin/page": "app/admin/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/admin/patients/page": "app/admin/patients/page.js",
+  "/admin/doctors/page": "app/admin/doctors/page.js",
+  "/admin/alerts/page": "app/admin/alerts/page.js",
+  "/admin/medications/page": "app/admin/medications/page.js",
+  "/medications/page": "app/medications/page.js",
+  "/appointments/page": "app/appointments/page.js",
+  "/notifications/page": "app/notifications/page.js",
+  "/patients/page": "app/patients/page.js",
+  "/page": "app/page.js",
+  "/profile/page": "app/profile/page.js",
+  "/patients/[id]/page": "app/patients/[id]/page.js"
 }
