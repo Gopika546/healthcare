@@ -1,21 +1,25 @@
 import PatientProfile from './PatientProfile';
-import type { Metadata } from 'next';
+import { Metadata } from 'next';
+import { type FC } from 'react';
 
-// This must be a regular (non-async) function or must return a resolved Promise
+interface PageProps {
+  params: {
+    id: string;
+  };
+}
+
+// ✅ Dynamic route page component
+const PatientPage: FC<PageProps> = ({ params }) => {
+  return <PatientProfile patientId={params.id} />;
+};
+
+export default PatientPage;
+
+// ✅ Static params for SSG (used by App Router)
 export function generateStaticParams() {
   return [
     { id: '1' },
     { id: '2' },
     { id: '3' }
   ];
-}
-
-interface PatientPageProps {
-  params: {
-    id: string;
-  };
-}
-
-export default function PatientPage({ params }: PatientPageProps) {
-  return <PatientProfile patientId={params.id} />;
 }
